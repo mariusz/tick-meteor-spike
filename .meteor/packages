@@ -8,3 +8,5 @@ autopublish
 insecure
 preserve-inputs
 coffeescript
+moment
+accounts-ui-unstyled

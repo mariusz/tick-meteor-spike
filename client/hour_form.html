@@ -1,0 +1,12 @@
+<template name="hour_form">
+  <form id="add_hours">
+    <fieldset>
+      {{#if error}}
+        <div class="error">{{ error }}</div>
+      {{/if}}
+
+      <input type="text" id="add_hours_description" placeholder="Input hours">
+      <input type="submit" id="add_hours_submit">
+    </fieldset>
+  </form>
+</template>

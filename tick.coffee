@@ -1,19 +1,14 @@
-if (Meteor.isClient) {
-  Template.hello.greeting = function () {
-    return "Welcome to tick.";
-  };
+if Meteor.isClient
+  Meteor.subscribe("hours", "mariusz")
 
-  Template.hello.events({
-    'click input' : function () {
-      // template data, if any, is available in 'this'
-      if (typeof console !== 'undefined')
-        console.log("You pressed the button");
-    }
-  });
-}
+if Meteor.isServer
+  Meteor.startup ->
+    Meteor.methods
+      create_user: (username) ->
+        console.log "Creating user: " + username
+        userId = Users.insert
+          name: username
 
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    // code to run on server at startup
-  });
-}
+    Meteor.publish "messages", (user) ->
+      @hours.find
+        user: user
